@@ -1,5 +1,18 @@
 # agentfence
 
+[![CI](https://github.com/hamarshehmhmd/agentfence/actions/workflows/ci.yml/badge.svg)](https://github.com/hamarshehmhmd/agentfence/actions/workflows/ci.yml)
+[![License: AGPL-3.0](https://img.shields.io/badge/license-AGPL--3.0-blue.svg)](LICENSE)
+![Python 3.11 | 3.12 | 3.13](https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.13-blue.svg)
+![Dependencies: none](https://img.shields.io/badge/dependencies-none-brightgreen.svg)
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/hamarshehmhmd/agentfence/main/install.sh | sh
+```
+
+Installs the CLI and registers the hook for Claude Code and Cursor (user-level, merged into your existing settings, safe to re-run). Prefer not to pipe to sh? `pipx install git+https://github.com/hamarshehmhmd/agentfence` (or `uv tool install git+https://github.com/hamarshehmhmd/agentfence`), then `agentfence install claude --user` / `agentfence install cursor --user`. [Read install.sh](install.sh) first if you like.
+
+![agentfence allowing safe commands and blocking rm -rf ~](docs/demo.gif)
+
 **A policy firewall for the shell commands AI coding agents run.**
 It plugs into Claude Code and Cursor as a hook and checks every command *before* it executes.
 `rm -rf ~`, `git push --force origin main`, `curl … | bash`, `DROP TABLE` and `cat .env | curl …` get blocked.
@@ -61,7 +74,9 @@ Quoted text is treated as data, so `echo 'rm -rf /'` and `git commit -m "drop ta
 ## Install
 
 ```bash
-pipx install git+https://github.com/hamarshehmhmd/agentfence
+curl -fsSL https://raw.githubusercontent.com/hamarshehmhmd/agentfence/main/install.sh | sh   # CLI + user-level hooks
+# or: pipx install git+https://github.com/hamarshehmhmd/agentfence
+# or: uv tool install git+https://github.com/hamarshehmhmd/agentfence
 # or: pip install git+https://github.com/hamarshehmhmd/agentfence
 ```
 

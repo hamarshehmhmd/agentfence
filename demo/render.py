@@ -73,10 +73,10 @@ SCENES = [
     {"kind": "bullets", "title": "Try it",
      "bullets": ["pipx install git+https://github.com/hamarshehmhmd/agentfence",
                  "agentfence install claude   # or: install cursor",
-                 "", "Zero dependencies  ·  99 tests  ·  MIT licensed",
+                 "", "Zero dependencies  ·  99 tests  ·  AGPL-3.0 licensed",
                  "A guardrail, not a sandbox: pair it with git and backups"],
      "say": "agentfence has no dependencies and ships with ninety nine tests. It is a guardrail, not a sandbox, "
-            "so keep using git and backups. It is MIT licensed on GitHub at hamarsheh m h m d slash agentfence."},
+            "so keep using git and backups. It is licensed under the A G P L version 3 and is on GitHub at hamarsheh m h m d slash agentfence."},
 ]
 
 
@@ -175,7 +175,7 @@ def card(scene):
         d.text((W // 2, 280), scene["title"], font=ImageFont.truetype(MONO_B, 84), fill=(95, 215, 120), anchor="mm")
         d.multiline_text((W // 2, 420), scene["sub"], font=ImageFont.truetype(SANS, 34), fill=FG, anchor="mm",
                          align="center", spacing=12)
-        d.text((W // 2, 620), "github.com/hamarshehmhmd/agentfence  ·  MIT", font=ImageFont.truetype(SANS, 22),
+        d.text((W // 2, 620), "github.com/hamarshehmhmd/agentfence  ·  AGPL-3.0", font=ImageFont.truetype(SANS, 22),
                fill=(150, 155, 165), anchor="mm")
     else:
         d.text((90, 90), scene["title"], font=ImageFont.truetype(SANS_B, 52), fill=(95, 215, 120))
@@ -256,7 +256,7 @@ def render_scene(i, scene, workdir):
 
 def main():
     os.makedirs(BUILD, exist_ok=True)
-    sandbox = os.path.join(BUILD, "home")
+    sandbox = os.environ.get("DEMO_HOME", "/home/dev")  # shown as $HOME in the demo
     shutil.rmtree(sandbox, ignore_errors=True)
     workdir = os.path.join(sandbox, "my-app")
     os.makedirs(workdir)
