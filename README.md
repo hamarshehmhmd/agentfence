@@ -6,7 +6,7 @@ It plugs into Claude Code and Cursor as a hook and checks every command *before*
 Commands that are risky but sometimes legitimate (`terraform destroy`, `git reset --hard`, reading `.env`) wait for a human.
 Everything else runs as normal.
 
-Zero dependencies (Python ≥ 3.11 standard library only), MIT licensed.
+Zero dependencies (Python ≥ 3.11 standard library only), licensed under AGPL-3.0 (commercial licenses available on request).
 
 ```console
 $ agentfence check -- "npm test && git push --force origin main"
@@ -172,4 +172,4 @@ pytest -q
 
 ## License
 
-MIT © 2026 Mohammad Hamarsheh
+GNU AGPL-3.0 © 2026 Mohammad Hamarsheh. Versions up to v0.1.0 were released under MIT. For a commercial license without AGPL obligations, open an issue or contact the author.
