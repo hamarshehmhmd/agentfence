@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentfence"
+version = "0.1.0"
+description = "A policy firewall for the shell commands AI coding agents run (Claude Code & Cursor hooks)."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Mohammad Hamarsheh" }]
+requires-python = ">=3.11"
+dependencies = []
+keywords = ["ai-agents", "claude-code", "cursor", "hooks", "security", "guardrails", "devtools"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Environment :: Console",
+  "Topic :: Security",
+  "Topic :: Software Development",
+]
+
+[project.urls]
+Homepage = "https://github.com/hamarshehmhmd/agentfence"
+
+[project.scripts]
+agentfence = "agentfence.cli:main"
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
